@@ -1,854 +1,849 @@
-$bckGrey: #333;
-$cubic: cubic-bezier(.55,0,.1,1);
-$cubicBtn: all 0.75s cubic-bezier(.55,0,.1,1);
-$drkYellow: #100E04;
-$fadeWhite: rgba(#fff,0.8);
-$headTrans: all 0.5s $cubic;
-$sideSpace: 55px;
-$textSpace: 35px;
-$yellow: #F1CA10;
-$console: 'Inconsolata';
-
-
-// Sizes for media queries
-
-$mb: 400;
-$bmb: 700;
-$tb: 768;
-$btb: 1024;
-$lt: 1200;
-$dt: 1440;
-
 body {
-	background: linear-gradient($bckGrey, #111 70%);
-	color: #000;
-	font-family: 'Inconsolata';
-	line-height: 1;
-	margin: 0;
-	padding: 0;
-	@media (max-width: #{$btb}px) {
-		background: #1D1D1D;
-	}
+  background: linear-gradient(#333, #111 70%);
+  color: #000;
+  font-family: "Inconsolata";
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  body {
+    background: #1D1D1D;
+  }
 }
 
 * a {
-	text-decoration: none;
-	color: #000;
-	&:hover {
-		text-decoration: none;
-		color: #000;
-	}
-	&.bold {
-		font-size: 16px;
-		letter-spacing: 0px;
-		text-decoration: underline;
-	}
+  text-decoration: none;
+  color: #000;
+}
+* a:hover {
+  text-decoration: none;
+  color: #000;
+}
+* a.bold {
+  font-size: 16px;
+  letter-spacing: 0px;
+  text-decoration: underline;
 }
 
 * span.bold {
-	font-size: 16px;
+  font-size: 16px;
 }
 
-
-.mobileHide {
-	@media(max-width: #{$btb}px) {
-		display: none !important;
-	}
+@media (max-width: 1024px) {
+  .mobileHide {
+    display: none !important;
+  }
 }
 
-.desktopHide {
-	@media(min-width: #{$btb+1}px) {
-		display: none !important;
-	}
+@media (min-width: 1025px) {
+  .desktopHide {
+    display: none !important;
+  }
 }
 
 .fader {
-	background: #111;
-	display: block;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 99999;
+  background: #111;
+  display: block;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
 }
 
 .mainContainer {
-	margin: 0 auto;
-	max-width: 1920px;
-	overflow: hidden;
-	top: 0;
+  margin: 0 auto;
+  max-width: 1920px;
+  overflow: hidden;
+  top: 0;
 }
 
 .btnContainer {
-	display: block;
-	height: 50px;
-	position: relative;
-	top: 0px;
-	transform-style: preserve-3d;
-	transition: $cubicBtn;
-	width: 175px;
+  display: block;
+  height: 50px;
+  position: relative;
+  top: 0px;
+  transform-style: preserve-3d;
+  transition: all 0.75s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 175px;
 }
 
 .boxBtn {
-	cursor: pointer;
-	&:hover {
-		.btnContainer {
-			top: 25px;
-			transform: rotateX(-90deg);
-			& .btnTop {
-				box-shadow: 2px 2px 4px rgba(#000,0.7);
-				opacity: 1;
-				font-weight: 700;
-			}
-			& .btnFace {
-				box-shadow: none;
-				opacity: 0.8;
-			}
-		}
-	}
+  cursor: pointer;
+}
+.boxBtn:hover .btnContainer {
+  top: 25px;
+  transform: rotateX(-90deg);
+}
+.boxBtn:hover .btnContainer .btnTop {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  font-weight: 700;
+}
+.boxBtn:hover .btnContainer .btnFace {
+  box-shadow: none;
+  opacity: 0.8;
 }
 
 .myBtn {
-	background: #000;
-	box-shadow: 2px 2px 4px rgba(#000,0.7);
-	color: $yellow;
-	display: inline-block;
-	font-size: 20px;
-	height: 50px;
-	padding: 12px 0 14px;
-	text-align: center;
-	letter-spacing: 1px;
-	position: absolute;
-	user-select: none;
-	width: 175px;
-	&.btnFace {
-		transition: $cubicBtn;
-	}
-	&.btnTop {
-		background: transparent;
-		border: 2px solid #000;
-		box-shadow: none;
-		color: #000;
-		opacity: 0.3;
-		transform: rotateX(90deg) translateY(-25px) translateZ(25px);
-		transition: $cubicBtn;
-	}
-	.icon {
-		position: relative;
-		top: 3px;
-	}
+  background: #000;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  color: #F1CA10;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 12px 0 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 175px;
+}
+.myBtn.btnFace {
+  transition: all 0.75s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.myBtn.btnTop {
+  background: transparent;
+  border: 2px solid #000;
+  box-shadow: none;
+  color: #000;
+  opacity: 0.3;
+  transform: rotateX(90deg) translateY(-25px) translateZ(25px);
+  transition: all 0.75s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.myBtn .icon {
+  position: relative;
+  top: 3px;
 }
 
 .letSpaceNone, .lastLetter {
-	letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    background: transparent;
+  }
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #FFF;
+  }
+  100% {
+    background: #FFF;
+  }
 }
 
 @keyframes flash {
-  0% {background: transparent;}
-  49% {background: transparent;}
-  50% {background: #FFF;}
-  100% {background: #FFF;}
+  0% {
+    background: transparent;
+  }
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #FFF;
+  }
+  100% {
+    background: #FFF;
+  }
 }
-
 header {
-	background-attachment: fixed;
-	background-image: url("https://picsum.photos/id/68/1920/1080");
-	background-position: center;
-	background-repeat: no-repeat;
-	display: block;
-	height: 475px;
-	position: relative;
-	top: 0;
-	width: 100%;
-	max-width: 1920px;
-	z-index: 1000;
-	@media(min-width: 1920px) {
-		height: 575px;
-		.triangle {
-			transform: translate(-50%, -670px);
-		}
-		.my {
-			font-size: 70px;
-		}
-		.resume {
-			font-size: 100px;
-		}
-	}
-	@media(max-width: #{$btb}px) {
-		background-image: url(http://theaftermath.xposedbones.com/img/headerBackground-mobile.jpg);
-		background-position: top center;
-		background-attachment: scroll;
-		background-size: cover;
-		top: -10px;
-	}
-	&.sticky {
-		position: fixed;
-		#myName {
-			bottom: 45px;
-			transform: scale(0.75);
-		}
-	}
-	#headDarker {
-		background: rgba(#000,0.1);
-		display: block;
-		height: 100%;
-		position: absolute;
-		width: 100%;
-		max-width: 1920px;
-		@media(max-width: #{$lt}px) {
-			background: rgba(#000,0.5);
-		}
-	}
-	.svgHolder {
-		.triangle {
-			display: block;
-			height: auto;
-			position: absolute;
-			transform: translate(-50%, -700px);
-			width: 1200px;
-			@media(max-width: #{$btb}px) {
-				width: 800px;
-				transform: translate(-20%, -300px);
-			}
-			@media(max-width: #{$bmb}px) {
-				width: 450px;
-				transform: translate(-20%, -175px);
-				@media(orientation: landscape) {
-					width: 400px;
-					transform: translate(-10%, -250px);
-				}
-			}
-		}
-		.resuTitle {
-			display: block;
-			margin: 20px 0 0 $sideSpace;
-			position: absolute;
-			span {
-				display: block;
-				letter-spacing: 5px;
-				line-height: 1;
-				margin: 0;
-				position: relative;
-				&.my {
-					font-size: 60px;
-				}
-				&.resume {
-					font-size: 90px;
-				}
-			}
-			@media(max-width: #{$btb}px) {
-				position: relative;
-				right: 0;
-				top: 120px;
-				margin: 10px 0 0 $sideSpace/2;
-			}
-			@media(max-width: #{$bmb}px) {
-				top: 50px;
-				span {
-					&.my {
-						font-size: 45px;
-					}
-					&.resume {
-						font-size: 60px;
-					}
-				}
-				@media(orientation: landscape) {
-					top: 5px;
-					span {
-						&.my {
-							font-size: 30px;
-						}
-						&.resume {
-							font-size: 50px;
-						}
-					}
-				}
-			}
-		}
-	}
-	#myName {
-		bottom: 64px;
-		color: $yellow;
-		display: block;
-		left: $sideSpace;
-		position: absolute;
-		transform-origin: bottom left;
-		span {
-			color: $yellow;
-			display: block;
-			line-height: 1;
-			transition: $headTrans;
-			&.mainName {
-				font-size: 35px;
-			}
-			&.subName {
-				font-size: 18px;
-			}
-		}
-		@media(max-width: #{$btb}px) {
-			bottom: 40px;
-			left: $sideSpace/2;
-			span {
-				&.mainName {
-					font-size: 50px
-				}
-				&.subName {
-					font-size: 20px
-				}
-			}
-			@media(orientation: landscape) {
-				left: auto;
-				right: $sideSpace/4;
-			}
-		}
-		@media(max-width: #{$tb - 1}px) {
-			bottom: 40px;
-			left: $sideSpace/4;
-			span {
-				&.mainName {
-					font-size: 30px
-				}
-				&.subName {
-					font-size: 16px
-				}
-			}
-		}
-	}
-
-	.menuBurger {
-		position: fixed;
-		right: 0;
-		top: 0;
-		background: rgba(#000, 0.8);
-		width: 35px;
-		padding: $sideSpace/6;
-		height: 30px;
-		cursor: pointer;
-		z-index: 10000;
-		overflow: hidden;
-		box-sizing: initial;
-		.bar {
-			width: 35px;
-			height: 3px;
-			display: block;
-			position: absolute;
-			background: rgba($yellow, 1);
-			transition: all 0.5s $cubic;
-			&.topBar {
-				transform: translateY(0px) rotate(0deg);
-			}
-			&.midBar {
-				transform: translateY(11px) rotate(0deg);
-			}
-			&.btmBar {
-				transform: translateY(22px) rotate(0deg);
-			}
-		}
-		&.burgerClosed {
-			.topBar {
-				transform: translateY(11px) rotate(45deg);
-			}
-			.midBar {
-				transform: translateY(11px) rotate(225deg);
-				background: rgba($yellow, 0);
-			}
-			.btmBar {
-				transform: translateY(11px) rotate(-45deg);
-			}
-		}
-	}
-
-	.chooseLang {
-		position: fixed;
-		padding: 10px;
-		font-size: 25px;
-		background: #000;
-		color: $yellow;
-		top: 0;
-		right: 0;
-		text-transform: uppercase;
-		&:hover {
-			background: $yellow;
-			color: #000;
-		}
-		&:active {
-			background: #000;
-			color: #fff;
-		}
-	}
-
-	#headMenu {
-		bottom: 0;
-		display: block;
-		padding-left: 33.3333%;
-		position: absolute;
-		transform: translateY(50%);
-		width: 100%;
-		max-width: 1920px;
-		.chooseLang {
-			position: absolute;
-    		display: inline-block;
-			padding: 10px;
-			font-size: 25px;
-			background: #000;
-			right: auto;
-			left: 0;
-			color: $yellow;
-			text-transform: uppercase;
-			transition: all 0.1s linear; 
-			&:hover {
-				background: $yellow;
-				color: #000;
-			}
-		}
-		ul {
-			display: block;
-			font-size: 0px;
-			list-style: none;
-			margin: 0 auto;
-			padding: 0;
-			position: relative;
-			width: 66%;
-			.menuTitle {
-			    font-size: 32px;
-			    display: block;
-			    position: relative;
-			    margin-bottom: 5px;
-			    margin-left: 10px;
-			    letter-spacing: 3px;
-			}
-			li {
-				box-shadow: 4px 4px 8px #000;
-				display: inline-block;
-				margin-right: 5%;
-				position: relative;
-				width: 30%;
-				z-index: 100;
-				border-radius: 1px;
-				overflow: hidden;
-				&:last-of-type {
-					margin-right: 0;
-				}
-				&:hover {
-					a {
-						background: rgba(#222, 0.8);
-						color: $yellow;
-						font-weight: 500;
-					}
-				}
-				&:active {
-					a {
-						background: #000;
-						color: #fff;
-					}
-				}
-				a {
-					background: $yellow;
-					color: #000;
-					display: block;
-					font-size: 22px;
-					font-weight: 700;
-					letter-spacing: 2px;
-					padding: 10px 0;
-					position: relative;
-					text-align: center;
-					text-decoration: none;
-					outline: none;
-				}
-			}
-		}
-		@media(max-width: #{$btb}px) {
-			display: block;
-			position: fixed;
-			height: 100%;
-			background: rgba(#000, 0.0);
-			top: 0;
-			left: -100%;
-			padding: 0;
-			transform: translateY(0px);
-			transition-delay: 0.1s;
-			ul {
-				width: 40%;
-				height: 100%;
-				margin: 0;
-				transform: translateX(-100%);
-				background: $yellow;
-				padding: 160px 0;
-				transition: transform 0.5s $cubic;
-				transition-delay: 0.1s;
-				li {
-					display: block;
-					box-shadow: none;
-					width: 100%;
-					border-bottom: 1px solid rgba(#000, 0.7);
-					&:first-child {
-						border-top: 1px solid rgba(#000, 0.7);
-					}
-					a {
-						padding: 20px 0;
-						font-size: 20px;
-						background: rgba(#000, 0.1);
-					}
-				}
-			}
-		}
-		@media(max-width: #{$tb - 1}px) {
-			ul {
-				width: 60% !important;
-				@media (orientation: landscape) {
-					padding: 30px 0;
-				}
-			}
-			
-		}
-		@media(min-width: #{$btb + 1}px) and (max-width: #{$lt}px) {
-			ul {
-				li {
-					a {
-						font-size: 18px;
-					}
-				}
-			}
-		}
-		&.menuOpened {
-			background: rgba(#000, 0.7);
-			ul {
-				transform: translateX(0%);
-			}
-		}
-	}
+  background-attachment: fixed;
+  background-image: url("https://picsum.photos/id/68/1920/1080");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 475px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  max-width: 1920px;
+  z-index: 1000;
+}
+@media (min-width: 1920px) {
+  header {
+    height: 575px;
+  }
+  header .triangle {
+    transform: translate(-50%, -670px);
+  }
+  header .my {
+    font-size: 70px;
+  }
+  header .resume {
+    font-size: 100px;
+  }
+}
+@media (max-width: 1024px) {
+  header {
+    background-image: url(http://theaftermath.xposedbones.com/img/headerBackground-mobile.jpg);
+    background-position: top center;
+    background-attachment: scroll;
+    background-size: cover;
+    top: -10px;
+  }
+}
+header.sticky {
+  position: fixed;
+}
+header.sticky #myName {
+  bottom: 45px;
+  transform: scale(0.75);
+}
+header #headDarker {
+  background: rgba(0, 0, 0, 0.1);
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  max-width: 1920px;
+}
+@media (max-width: 1200px) {
+  header #headDarker {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+header .svgHolder .triangle {
+  display: block;
+  height: auto;
+  position: absolute;
+  transform: translate(-50%, -700px);
+  width: 1200px;
+}
+@media (max-width: 1024px) {
+  header .svgHolder .triangle {
+    width: 800px;
+    transform: translate(-20%, -300px);
+  }
+}
+@media (max-width: 700px) {
+  header .svgHolder .triangle {
+    width: 450px;
+    transform: translate(-20%, -175px);
+  }
+}
+@media (max-width: 700px) and (orientation: landscape) {
+  header .svgHolder .triangle {
+    width: 400px;
+    transform: translate(-10%, -250px);
+  }
+}
+header .svgHolder .resuTitle {
+  display: block;
+  margin: 20px 0 0 55px;
+  position: absolute;
+}
+header .svgHolder .resuTitle span {
+  display: block;
+  letter-spacing: 5px;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+}
+header .svgHolder .resuTitle span.my {
+  font-size: 60px;
+}
+header .svgHolder .resuTitle span.resume {
+  font-size: 90px;
+}
+@media (max-width: 1024px) {
+  header .svgHolder .resuTitle {
+    position: relative;
+    right: 0;
+    top: 120px;
+    margin: 10px 0 0 27.5px;
+  }
+}
+@media (max-width: 700px) {
+  header .svgHolder .resuTitle {
+    top: 50px;
+  }
+  header .svgHolder .resuTitle span.my {
+    font-size: 45px;
+  }
+  header .svgHolder .resuTitle span.resume {
+    font-size: 60px;
+  }
+}
+@media (max-width: 700px) and (orientation: landscape) {
+  header .svgHolder .resuTitle {
+    top: 5px;
+  }
+  header .svgHolder .resuTitle span.my {
+    font-size: 30px;
+  }
+  header .svgHolder .resuTitle span.resume {
+    font-size: 50px;
+  }
+}
+header #myName {
+  bottom: 64px;
+  color: #F1CA10;
+  display: block;
+  left: 55px;
+  position: absolute;
+  transform-origin: bottom left;
+}
+header #myName span {
+  color: #F1CA10;
+  display: block;
+  line-height: 1;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+header #myName span.mainName {
+  font-size: 35px;
+}
+header #myName span.subName {
+  font-size: 18px;
+}
+@media (max-width: 1024px) {
+  header #myName {
+    bottom: 40px;
+    left: 27.5px;
+  }
+  header #myName span.mainName {
+    font-size: 50px;
+  }
+  header #myName span.subName {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  header #myName {
+    left: auto;
+    right: 13.75px;
+  }
+}
+@media (max-width: 767px) {
+  header #myName {
+    bottom: 40px;
+    left: 13.75px;
+  }
+  header #myName span.mainName {
+    font-size: 30px;
+  }
+  header #myName span.subName {
+    font-size: 16px;
+  }
+}
+header .menuBurger {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 35px;
+  padding: 9.1666666667px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10000;
+  overflow: hidden;
+  box-sizing: initial;
+}
+header .menuBurger .bar {
+  width: 35px;
+  height: 3px;
+  display: block;
+  position: absolute;
+  background: #f1ca10;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+header .menuBurger .bar.topBar {
+  transform: translateY(0px) rotate(0deg);
+}
+header .menuBurger .bar.midBar {
+  transform: translateY(11px) rotate(0deg);
+}
+header .menuBurger .bar.btmBar {
+  transform: translateY(22px) rotate(0deg);
+}
+header .menuBurger.burgerClosed .topBar {
+  transform: translateY(11px) rotate(45deg);
+}
+header .menuBurger.burgerClosed .midBar {
+  transform: translateY(11px) rotate(225deg);
+  background: rgba(241, 202, 16, 0);
+}
+header .menuBurger.burgerClosed .btmBar {
+  transform: translateY(11px) rotate(-45deg);
+}
+header .chooseLang {
+  position: fixed;
+  padding: 10px;
+  font-size: 25px;
+  background: #000;
+  color: #F1CA10;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+}
+header .chooseLang:hover {
+  background: #F1CA10;
+  color: #000;
+}
+header .chooseLang:active {
+  background: #000;
+  color: #fff;
+}
+header #headMenu {
+  bottom: 0;
+  display: block;
+  padding-left: 33.3333%;
+  position: absolute;
+  transform: translateY(50%);
+  width: 100%;
+  max-width: 1920px;
+}
+header #headMenu .chooseLang {
+  position: absolute;
+  display: inline-block;
+  padding: 10px;
+  font-size: 25px;
+  background: #000;
+  right: auto;
+  left: 0;
+  color: #F1CA10;
+  text-transform: uppercase;
+  transition: all 0.1s linear;
+}
+header #headMenu .chooseLang:hover {
+  background: #F1CA10;
+  color: #000;
+}
+header #headMenu ul {
+  display: block;
+  font-size: 0px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  width: 66%;
+}
+header #headMenu ul .menuTitle {
+  font-size: 32px;
+  display: block;
+  position: relative;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  letter-spacing: 3px;
+}
+header #headMenu ul li {
+  box-shadow: 4px 4px 8px #000;
+  display: inline-block;
+  margin-right: 5%;
+  position: relative;
+  width: 30%;
+  z-index: 100;
+  border-radius: 1px;
+  overflow: hidden;
+}
+header #headMenu ul li:last-of-type {
+  margin-right: 0;
+}
+header #headMenu ul li:hover a {
+  background: rgba(34, 34, 34, 0.8);
+  color: #F1CA10;
+  font-weight: 500;
+}
+header #headMenu ul li:active a {
+  background: #000;
+  color: #fff;
+}
+header #headMenu ul li a {
+  background: #F1CA10;
+  color: #000;
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+@media (max-width: 1024px) {
+  header #headMenu {
+    display: block;
+    position: fixed;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    top: 0;
+    left: -100%;
+    padding: 0;
+    transform: translateY(0px);
+    transition-delay: 0.1s;
+  }
+  header #headMenu ul {
+    width: 40%;
+    height: 100%;
+    margin: 0;
+    transform: translateX(-100%);
+    background: #F1CA10;
+    padding: 160px 0;
+    transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    transition-delay: 0.1s;
+  }
+  header #headMenu ul li {
+    display: block;
+    box-shadow: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  }
+  header #headMenu ul li:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.7);
+  }
+  header #headMenu ul li a {
+    padding: 20px 0;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+@media (max-width: 767px) {
+  header #headMenu ul {
+    width: 60% !important;
+  }
+}
+@media (max-width: 767px) and (orientation: landscape) {
+  header #headMenu ul {
+    padding: 30px 0;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+  header #headMenu ul li a {
+    font-size: 18px;
+  }
+}
+header #headMenu.menuOpened {
+  background: rgba(0, 0, 0, 0.7);
+}
+header #headMenu.menuOpened ul {
+  transform: translateX(0%);
 }
 
 #__bs_notify__ {
-	bottom: 0;
-	top: auto !important;
+  bottom: 0;
+  top: auto !important;
 }
 
 .mainContent {
-	max-width: 1920px;
-	position: relative;
-	overflow: hidden;
-	section {
-		padding: 0 $sideSpace;
-		margin: 150px auto;
-    max-width: 1350px;
-		@media(max-width: #{$btb}px) {
-			padding: 0 $sideSpace/4;
-			margin: 75px 0;
-		}
-		@media(max-width: #{$bmb}px) {
-			padding: 0 $sideSpace/6;
-			z-index: 1;
-		}
-	}
-	.darker {
-		background: rgba($drkYellow, 0.6);
-		display: block;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		transition: background 0.5s $cubic;
-		width: 100%;
-		z-index: 10;
-	}
-	.container {
-		width: 100%;
-		.half {
-			padding: 0;
-			a {
-				padding: 0;
-			}
-			.yellowContain {
-				display: block;
-				position: relative;
-				height: 100%;
-			}
-			.yellowBox {
-				background: $yellow;
-				display: table;
-				height: 100%;
-				width: 100%;
-				z-index: 10;
-				.boxTitle {
-					background: #000;
-					box-shadow: 4px 4px 8px #000;
-					color: $yellow;
-					display: inline-block;
-					font-size: 28px;
-					left: -$sideSpace/2;
-					letter-spacing: 1px;
-					line-height: 1;
-					padding: 12px $sideSpace;
-					position: absolute;
-					text-align: center;
-					top: 40px;
-					&:after {
-						border-color: #000000 transparent transparent transparent;
-						border-style: solid;
-						border-width: 42px 21px 0 21px;
-						content: '';
-						height: 0;
-						left: 8px;
-						position: absolute;
-						top: 40px;
-						transform: rotate(-30deg);
-						width: 0;
-						z-index: -1;
-					}
-					&:before {
-						border-color: #000000 transparent transparent transparent;
-						border-style: solid;
-						border-width: 42px 21px 0 21px;
-						content: '';
-						height: 0;
-						position: absolute;
-						right: 8px;
-						top: 40px;
-						transform: rotate(30deg);
-						width: 0;
-						z-index: -1;
-					}
-				}
-				.ctaBtn {
-					bottom: 32px;
-					position: absolute;
-					right: $sideSpace/2;
-				}
-			}
-			.boxText {
-				display: table-cell;
-				font-weight: 700;
-				padding: 0 $sideSpace/2;
-				text-align: justify;
-				vertical-align: middle;
-			}
-			@media (max-width: 991px) {
-				.yellowBox {
-					height: auto;
-					.boxTitle {
-						top: 20px;
-						font-size: 24px;
-						padding: 8px $sideSpace;
-						&:after, &:before {
-							display: none;
-						}
-					}
-				}
-				.boxText {
-					padding: 100px 25px 80px;
-					font-size: 12px;
-				}
-			}
-
-		}
-		.picGrid {
-			overflow: hidden;
-
-			a {
-				position: relative;
-        display: block;
-        width: 100%;
-        aspect-ratio: 2.39/1;
-        
-				img {
-					max-width: 100%;
-				}
-				.icon {
-					color: $fadeWhite;
-					font-size: 35px;
-					left: 50%;
-					opacity: 0;
-					position: absolute;
-					top: 62%;
-					transform: translate(-50%);
-					transition: all 0.5s $cubic;
-					z-index: 100;
-				}
-				.tileTitle {
-					color: $fadeWhite;
-					display: inline-block;
-					font-size: 30px;
-					font-weight: 700;
-					height: 37px;
-					left: 50%;
-					letter-spacing: 10px;
-					position: absolute;
-					text-align: center;
-					text-transform: uppercase;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-					top: 50%;
-					transform: translate(-50%, -50%) scale(1);
-					transition: all 0.2s ease-in-out;
-					z-index: 11;
-					&:before, &:after {
-						background: $fadeWhite;
-						content: '';
-						display: block;
-						height: 2px;
-						position: relative;
-						transition-delay: 0.2s;
-						transition: all 0.5s $cubic;
-						width: 0%;
-						z-index: 11;
-					}
-					&:after {
-						float: right;
-						margin-top: 3px;
-					}
-				}
-				@media(min-width: #{$lt+1}px) {
-					&:hover {
-						.darker {
-							background: rgba($drkYellow, 0.95);
-						}
-						.tileTitle {
-							color: rgba(#fff,1);
-							transform: translate(-50%, -50%) scale(1.1);
-							&:before, &:after {
-								width: 100%;
-							}
-						}
-						.icon {
-							opacity: 1;
-							transition-delay: 0.5s;
-						}
-					}
-				}
-			}
-			@media(max-width: #{$tb}px) {
-				a {
-					.tileTitle {
-						font-size: 18px;
-					}
-					.contact {
-						font-size: 24px;
-					}
-				}
-			}
-			@media(max-width: #{$bmb}px) {
-				a {
-					.tileTitle {
-						letter-spacing: 5px;
-						height: auto;
-					}
-				}
-			}
-		}
-	}
-	#myWork {
-		@media(max-width: #{$tb}px) {
-			margin-top: 40px;
-		}
-	}
-	#aboutMe {
-		.darker {
-			background: rgba($drkYellow, 0.6);
-		}
-		.half {
-			img {
-				min-height: 500px;
-				width: 100%;
-			}
-			.boxTitle {
-				left: auto;
-				right: -$sideSpace/2;
-			}
-			.statsDiv {
-				color: #fff;
-				display: block;
-				height: 100%;
-				padding: 15px $sideSpace/2;
-				position: absolute;
-				top: 0;
-				width: 100%;
-				z-index: 100;
-				h2 {
-					background: #000;
-					letter-spacing: 1px;
-					margin-bottom: 30px;
-					padding: 5px 10px;
-					position: absolute;
-					&:after {
-						animation: flash 1s infinite;
-						background: #fff;
-						content: '';
-						display: inline-block;
-						height: 25px;
-						margin-left: 1px;
-						opacity: 0.8;
-						position: relative;
-						top: 2px;
-						width: 16px;
-					}
-				}
-				.dataProg {
-					display: block;
-					position: relative;
-					top: 50%;
-					transform: translateY(-50%);
-				}
-				.statHolder {
-					width: 100%;
-					padding: 0 $sideSpace;
-					h4 {
-						display: block;
-						position: relative;
-						text-align: center;
-						letter-spacing: 2px;
-					}
-					.bar {
-						background: rgba(#000, 0.5);
-						display: block;
-						height: 12px;
-						margin: 0 auto 25px;
-						overflow: hidden;
-						position: relative;
-						width: 100%;
-						.progressBar {
-							width: 0;
-							height: 100%;
-							background: rgba($yellow, 0.9);
-						}
-					}
-				}
-			}
-		}
-		@media(max-width: 600px) {
-			#gifCont {
-				overflow: hidden;
-			}
-			.half {
-					img {
-					position: relative;
-					left: -95px;
-					width: auto;
-				}
-				.statsDiv {
-					padding: 0px;
-					h2 {
-						left: 7px;
-					}
-					.statHolder {
-						padding: 0 20px;
-					}
-				}
-			}
-		}
-	}
-	#whyMe {
-		.yellowBox {
-			h2 {
-				background: #000;
-				box-shadow: 4px 4px 8px #000;
-				color: $yellow;
-				display: block;
-				margin: 0 auto 40px;
-				padding: 5px 35px;
-				position: relative;
-				width: 175px;
-			}
-		}
-		.myBtn { padding: 12px 0px 14px; }
-	}
+  max-width: 1920px;
+  position: relative;
+  overflow: hidden;
+}
+.mainContent section {
+  padding: 0 55px;
+  margin: 150px auto;
+  max-width: 1350px;
+}
+@media (max-width: 1024px) {
+  .mainContent section {
+    padding: 0 13.75px;
+    margin: 75px 0;
+  }
+}
+@media (max-width: 700px) {
+  .mainContent section {
+    padding: 0 9.1666666667px;
+    z-index: 1;
+  }
+}
+.mainContent .darker {
+  background: rgba(16, 14, 4, 0.6);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: background 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 100%;
+  z-index: 10;
+}
+.mainContent .container {
+  width: 100%;
+}
+.mainContent .container .half {
+  padding: 0;
+}
+.mainContent .container .half a {
+  padding: 0;
+}
+.mainContent .container .half .yellowContain {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.mainContent .container .half .yellowBox {
+  background: #F1CA10;
+  display: table;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.mainContent .container .half .yellowBox .boxTitle {
+  background: #000;
+  box-shadow: 4px 4px 8px #000;
+  color: #F1CA10;
+  display: inline-block;
+  font-size: 28px;
+  left: -27.5px;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding: 12px 55px;
+  position: absolute;
+  text-align: center;
+  top: 40px;
+}
+.mainContent .container .half .yellowBox .boxTitle:after {
+  border-color: #000000 transparent transparent transparent;
+  border-style: solid;
+  border-width: 42px 21px 0 21px;
+  content: "";
+  height: 0;
+  left: 8px;
+  position: absolute;
+  top: 40px;
+  transform: rotate(-30deg);
+  width: 0;
+  z-index: -1;
+}
+.mainContent .container .half .yellowBox .boxTitle:before {
+  border-color: #000000 transparent transparent transparent;
+  border-style: solid;
+  border-width: 42px 21px 0 21px;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 8px;
+  top: 40px;
+  transform: rotate(30deg);
+  width: 0;
+  z-index: -1;
+}
+.mainContent .container .half .yellowBox .ctaBtn {
+  bottom: 32px;
+  position: absolute;
+  right: 27.5px;
+}
+.mainContent .container .half .boxText {
+  display: table-cell;
+  font-weight: 700;
+  padding: 0 27.5px;
+  text-align: justify;
+  vertical-align: middle;
+}
+@media (max-width: 991px) {
+  .mainContent .container .half .yellowBox {
+    height: auto;
+  }
+  .mainContent .container .half .yellowBox .boxTitle {
+    top: 20px;
+    font-size: 24px;
+    padding: 8px 55px;
+  }
+  .mainContent .container .half .yellowBox .boxTitle:after, .mainContent .container .half .yellowBox .boxTitle:before {
+    display: none;
+  }
+  .mainContent .container .half .boxText {
+    padding: 100px 25px 80px;
+    font-size: 12px;
+  }
+}
+.mainContent .container .picGrid {
+  overflow: hidden;
+}
+.mainContent .container .picGrid a {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.39/1;
+}
+.mainContent .container .picGrid a img {
+  max-width: 100%;
+}
+.mainContent .container .picGrid a .icon {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 35px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 62%;
+  transform: translate(-50%);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: 100;
+}
+.mainContent .container .picGrid a .tileTitle {
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  height: 37px;
+  left: 50%;
+  letter-spacing: 10px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.2s ease-in-out;
+  z-index: 11;
+}
+.mainContent .container .picGrid a .tileTitle:before, .mainContent .container .picGrid a .tileTitle:after {
+  background: rgba(255, 255, 255, 0.8);
+  content: "";
+  display: block;
+  height: 2px;
+  position: relative;
+  transition-delay: 0.2s;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 0%;
+  z-index: 11;
+}
+.mainContent .container .picGrid a .tileTitle:after {
+  float: right;
+  margin-top: 3px;
+}
+@media (min-width: 1201px) {
+  .mainContent .container .picGrid a:hover .darker {
+    background: rgba(16, 14, 4, 0.95);
+  }
+  .mainContent .container .picGrid a:hover .tileTitle {
+    color: white;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  .mainContent .container .picGrid a:hover .tileTitle:before, .mainContent .container .picGrid a:hover .tileTitle:after {
+    width: 100%;
+  }
+  .mainContent .container .picGrid a:hover .icon {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+}
+@media (max-width: 768px) {
+  .mainContent .container .picGrid a .tileTitle {
+    font-size: 18px;
+  }
+  .mainContent .container .picGrid a .contact {
+    font-size: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .mainContent .container .picGrid a .tileTitle {
+    letter-spacing: 5px;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .mainContent #myWork {
+    margin-top: 40px;
+  }
+}
+.mainContent #aboutMe .darker {
+  background: rgba(16, 14, 4, 0.6);
+}
+.mainContent #aboutMe .half img {
+  min-height: 500px;
+  width: 100%;
+}
+.mainContent #aboutMe .half .boxTitle {
+  left: auto;
+  right: -27.5px;
+}
+.mainContent #aboutMe .half .statsDiv {
+  color: #fff;
+  display: block;
+  height: 100%;
+  padding: 15px 27.5px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.mainContent #aboutMe .half .statsDiv h2 {
+  background: #000;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  padding: 5px 10px;
+  position: absolute;
+}
+.mainContent #aboutMe .half .statsDiv h2:after {
+  -webkit-animation: flash 1s infinite;
+          animation: flash 1s infinite;
+  background: #fff;
+  content: "";
+  display: inline-block;
+  height: 25px;
+  margin-left: 1px;
+  opacity: 0.8;
+  position: relative;
+  top: 2px;
+  width: 16px;
+}
+.mainContent #aboutMe .half .statsDiv .dataProg {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mainContent #aboutMe .half .statsDiv .statHolder {
+  width: 100%;
+  padding: 0 55px;
+}
+.mainContent #aboutMe .half .statsDiv .statHolder h4 {
+  display: block;
+  position: relative;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.mainContent #aboutMe .half .statsDiv .statHolder .bar {
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  height: 12px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.mainContent #aboutMe .half .statsDiv .statHolder .bar .progressBar {
+  width: 0;
+  height: 100%;
+  background: rgba(241, 202, 16, 0.9);
+}
+@media (max-width: 600px) {
+  .mainContent #aboutMe #gifCont {
+    overflow: hidden;
+  }
+  .mainContent #aboutMe .half img {
+    position: relative;
+    left: -95px;
+    width: auto;
+  }
+  .mainContent #aboutMe .half .statsDiv {
+    padding: 0px;
+  }
+  .mainContent #aboutMe .half .statsDiv h2 {
+    left: 7px;
+  }
+  .mainContent #aboutMe .half .statsDiv .statHolder {
+    padding: 0 20px;
+  }
+}
+.mainContent #whyMe .yellowBox h2 {
+  background: #000;
+  box-shadow: 4px 4px 8px #000;
+  color: #F1CA10;
+  display: block;
+  margin: 0 auto 40px;
+  padding: 5px 35px;
+  position: relative;
+  width: 175px;
+}
+.mainContent #whyMe .myBtn {
+  padding: 12px 0px 14px;
 }
