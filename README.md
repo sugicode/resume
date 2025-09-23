@@ -21,7 +21,7 @@ I'm passionate about technology, creativity, and continuous learning. Here you'l
 ---
 
 ## 📫 Connect With Me  
-- GitHub: [github.com/yourusername](https://github.com/sugicode)  
+- GitHub: [github.com/sugicode](https://github.com/sugicode)  
 - LinkedIn: [linkedin.com/in/sugi-yono-29257b192](https://linkedin.com/in/sugi-yono-29257b192)  
 - Email: [sugiii42@gmail.com]  
 
